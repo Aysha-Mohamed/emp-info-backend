@@ -3,6 +3,7 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3010;
+const apiKey = process.env.API_KEY;
 
 app.use(cors());
 
@@ -12,8 +13,8 @@ app.get('/api/employees', async (req, res) => {
     try {
       const url = 'https://api.1337co.de/v3/employees';
       const headers = {
-        Authorization: 'api-key 14:2023-08-08:anna.vanduijvenbode@tretton37.com e45a016060a6a978619e585f261cc4f5692b2b8f96fad8ba45d2ae0435fc9cdd',
-      };
+        Authorization: apiKey
+    };
   
       const response = await fetch(url, { headers });
       if (response.ok) {
